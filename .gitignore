@@ -2,7 +2,7 @@
 node_modules/
 
 # TypeScript build output
-packages/*/dist/
+dist/
 
 # Analysis output (generated data files)
 co-change.json
