@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 # Analysis output (generated data files)
-co-change.json
+co-change-data.json
 
 # Python
 __pycache__/

@@ -15,7 +15,7 @@ export function runDisplay(args: string[]): void {
     strict: true,
   });
 
-  const dataPath = values.data ?? "co-gitsune.json";
+  const dataPath = values.data ?? "co-change-data.json";
 
   if (!existsSync(dataPath)) {
     console.error(`Error: ${dataPath} not found.`);
