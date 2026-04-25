@@ -12,7 +12,7 @@ switch (subcommand) {
     runDisplay(args);
     break;
   default:
-    console.error('Usage: co-change <command> [options]');
+    console.error('Usage: co-gitsune <command> [options]');
     console.error('');
     console.error('Commands:');
     console.error('  analyze   Analyze git commit history for co-change pairs');

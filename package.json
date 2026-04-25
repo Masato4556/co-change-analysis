@@ -1,5 +1,5 @@
 {
-  "name": "co-change",
+  "name": "co-gitsune",
   "version": "0.1.0",
   "description": "Analyze git commit history to find files that frequently change together",
   "type": "module",
@@ -19,7 +19,7 @@
     }
   },
   "bin": {
-    "co-change": "dist/bin/co-change.js"
+    "co-gitsune": "dist/bin/co-gitsune.js"
   },
   "files": [
     "dist",
@@ -29,11 +29,11 @@
     "node": ">=18.0.0"
   },
   "license": "MIT",
-  "keywords": ["git", "co-change", "coupling", "analysis", "refactoring", "cli"],
+  "keywords": ["git", "co-gitsune", "co-change", "coupling", "analysis", "refactoring", "cli"],
   "scripts": {
     "build": "tsc",
-    "analyze": "tsx src/bin/co-change.ts analyze",
-    "display": "tsx src/bin/co-change.ts display",
+    "analyze": "tsx src/bin/co-gitsune.ts analyze",
+    "display": "tsx src/bin/co-gitsune.ts display",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run test && npm run build"

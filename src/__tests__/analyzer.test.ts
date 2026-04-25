@@ -11,7 +11,7 @@ describe('CoChangeAnalyzer', () => {
 
   beforeEach(() => {
     tempDir = mkdtempSync(join(tmpdir(), 'co-change-'));
-    dataPath = join(tempDir, 'co-change.json');
+    dataPath = join(tempDir, 'co-gitsune.json');
     analyzer = new CoChangeAnalyzer(dataPath);
   });
 

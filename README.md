@@ -1,26 +1,26 @@
-# co-change
+# co-gitsune
 
 Analyze git commit history to find files that frequently change together.
 
 ## Installation
 
 ```bash
-npm install -g co-change
+npm install -g co-gitsune
 ```
 
 ## CLI Usage
 
-### `co-change-analyze`
+### `co-gitsune analyze`
 
 Scans the git history of the current repository and saves co-change data to a JSON file.
 
 ```bash
-co-change-analyze [options]
+co-gitsune analyze [options]
 ```
 
 | Option | Description |
 |--------|-------------|
-| `--data <path>` | Path to the output data file (default: `co-change.json`) |
+| `--data <path>` | Path to the output data file (default: `co-gitsune.json`) |
 | `--since <date>` | Only analyze commits after this date (e.g. `2024-01-01`) |
 | `--max-commits <n>` | Limit analysis to the most recent N commits |
 | `--update`, `-u` | Incrementally update existing data with new commits |
@@ -30,27 +30,27 @@ co-change-analyze [options]
 
 ```bash
 # Analyze entire history
-co-change-analyze
+co-gitsune analyze
 
 # Analyze only recent commits
-co-change-analyze --since 2024-01-01
-co-change-analyze --max-commits 500
+co-gitsune analyze --since 2024-01-01
+co-gitsune analyze --max-commits 500
 
 # Incrementally update existing data
-co-change-analyze --update
+co-gitsune analyze --update
 ```
 
-### `co-change-display`
+### `co-gitsune display`
 
 Display the results from a previously generated data file.
 
 ```bash
-co-change-display [options]
+co-gitsune display [options]
 ```
 
 | Option | Description |
 |--------|-------------|
-| `--data <path>` | Path to the data file (default: `co-change.json`) |
+| `--data <path>` | Path to the data file (default: `co-gitsune.json`) |
 | `--top <n>` | Show top N pairs (default: `20`) |
 | `--filter <file>` | Only show pairs involving this file |
 | `--markdown` | Output in Markdown table format |
@@ -59,13 +59,13 @@ co-change-display [options]
 
 ```bash
 # Show top 20 pairs
-co-change-display
+co-gitsune display
 
 # Show top 50 pairs in Markdown
-co-change-display --top 50 --markdown
+co-gitsune display --top 50 --markdown
 
 # Show pairs involving a specific file
-co-change-display --filter src/auth.ts
+co-gitsune display --filter src/auth.ts
 ```
 
 ## .cochangeignore
@@ -82,14 +82,14 @@ dist/
 ## Library Usage
 
 ```typescript
-import { CoChangeAnalyzer } from 'co-change';
-import { filterPairs, formatPairs } from 'co-change/results';
+import { CoChangeAnalyzer } from 'co-gitsune';
+import { filterPairs, formatPairs } from 'co-gitsune/results';
 
-const analyzer = new CoChangeAnalyzer('co-change.json');
+const analyzer = new CoChangeAnalyzer('co-gitsune.json');
 analyzer.updateWithGit();
 analyzer.saveData();
 
-const data = JSON.parse(fs.readFileSync('co-change.json', 'utf-8'));
+const data = JSON.parse(fs.readFileSync('co-gitsune.json', 'utf-8'));
 const pairs = filterPairs(data.counts, data.idToFile, { topN: 10 });
 formatPairs(pairs, 'cli');
 ```

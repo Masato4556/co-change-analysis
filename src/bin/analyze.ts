@@ -16,7 +16,7 @@ export function runAnalyze(args: string[]): void {
     strict: true,
   });
 
-  const dataPath = values.data ?? 'co-change.json';
+  const dataPath = values.data ?? 'co-gitsune.json';
   const maxCommits = values['max-commits'] ? parseInt(values['max-commits']) : undefined;
 
   if (values.reset && existsSync(dataPath)) {
