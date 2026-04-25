@@ -19,8 +19,7 @@
     }
   },
   "bin": {
-    "co-change-analyze": "dist/bin/analyze.js",
-    "co-change-display": "dist/bin/display.js"
+    "co-change": "dist/bin/co-change.js"
   },
   "files": [
     "dist",
@@ -33,8 +32,8 @@
   "keywords": ["git", "co-change", "coupling", "analysis", "refactoring", "cli"],
   "scripts": {
     "build": "tsc",
-    "analyze": "tsx src/bin/analyze.ts",
-    "display": "tsx src/bin/display.ts",
+    "analyze": "tsx src/bin/co-change.ts analyze",
+    "display": "tsx src/bin/co-change.ts display",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "npm run test && npm run build"
