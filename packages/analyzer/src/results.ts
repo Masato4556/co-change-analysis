@@ -1,4 +1,4 @@
-export interface Pair {
+export interface FilePair {
   count: number;
   file1: string;
   file2: string;
@@ -8,7 +8,7 @@ export function filterPairs(
   counts: Record<string | number, Record<string | number, number>>,
   idToFile: string[],
   options: { topN?: number; filterFile?: string } = {}
-): Pair[] {
+): FilePair[] {
   const { topN, filterFile } = options;
 
   let filterId: number | undefined;
@@ -18,7 +18,7 @@ export function filterPairs(
     filterId = idx;
   }
 
-  const pairs: Pair[] = [];
+  const pairs: FilePair[] = [];
   for (const [id1Raw, connected] of Object.entries(counts)) {
     const id1 = parseInt(String(id1Raw));
     for (const [id2Raw, count] of Object.entries(connected)) {
@@ -32,7 +32,7 @@ export function filterPairs(
   return topN !== undefined ? pairs.slice(0, topN) : pairs;
 }
 
-export function formatPairs(pairs: Pair[], mode: 'cli' | 'markdown' = 'cli'): void {
+export function formatPairs(pairs: FilePair[], mode: 'cli' | 'markdown' = 'cli'): void {
   if (pairs.length === 0) {
     console.log('No pairs found.');
     return;

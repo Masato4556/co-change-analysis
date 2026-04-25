@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "analyze": "tsx src/analyze.ts",
-    "display": "tsx src/display-cli.ts",
+    "analyze": "tsx src/bin/analyze.ts",
+    "display": "tsx src/bin/display.ts",
     "test": "vitest run",
     "test:watch": "vitest"
   },

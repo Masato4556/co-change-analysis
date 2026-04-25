@@ -1,7 +1,7 @@
 import { parseArgs } from 'node:util';
 import { existsSync, unlinkSync } from 'node:fs';
 import { cwd } from 'node:process';
-import { CoChangeAnalyzer } from './analyzer.js';
+import { CoChangeAnalyzer } from '../analyzer.js';
 
 const { values } = parseArgs({
   options: {

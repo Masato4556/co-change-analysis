@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { filterPairs } from '../display.js';
+import { filterPairs } from '../results.js';
 
 describe('filterPairs', () => {
   const idToFile = ['a.py', 'b.py', 'c.py', 'd.py'];
