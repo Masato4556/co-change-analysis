@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { parseArgs } from "node:util";
 import { existsSync, readFileSync } from "node:fs";
 import { filterPairs, formatPairs } from "../results.js";

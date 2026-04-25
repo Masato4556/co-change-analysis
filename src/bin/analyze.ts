@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { parseArgs } from 'node:util';
 import { existsSync, unlinkSync } from 'node:fs';
 import { cwd } from 'node:process';
