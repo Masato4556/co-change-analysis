@@ -10,9 +10,16 @@ npm install -g co-gitsune
 
 ## CLI Usage
 
+### Basic workflow
+
+```bash
+co-gitsune analyze   # scan git history and save results to co-gitsune.json
+co-gitsune display   # view the results
+```
+
 ### `co-gitsune analyze`
 
-Scans the git history of the current repository and saves co-change data to a JSON file.
+Scans the git history of the current repository and saves co-change data to a JSON file. Results are not displayed — run `co-gitsune display` to view them.
 
 ```bash
 co-gitsune analyze [options]

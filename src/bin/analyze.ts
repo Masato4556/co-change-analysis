@@ -53,6 +53,6 @@ export function runAnalyze(args: string[]): void {
   analyzer.updateWithGit(values.since, maxCommits);
   analyzer.saveData();
 
-  analyzer.report();
-  console.log(`\nData saved to ${dataPath}`);
+  console.log(`\nAnalysis complete. Data saved to ${dataPath}`);
+  console.log(`\nRun \`co-gitsune display\` to view results.`);
 }
