@@ -1,0 +1,10 @@
+{
+  "name": "co-change-analysis",
+  "private": true,
+  "scripts": {
+    "analyze": "pnpm --filter @co-change-analysis/analyzer run analyze",
+    "display": "pnpm --filter @co-change-analysis/analyzer run display",
+    "test": "pnpm --filter @co-change-analysis/analyzer run test",
+    "build": "pnpm --filter @co-change-analysis/analyzer run build"
+  }
+}

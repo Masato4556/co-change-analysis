@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# TypeScript build output
+packages/*/dist/
+
+# Analysis output (generated data files)
+co-change.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS
+.DS_Store
