@@ -1,6 +1,7 @@
 import { parseArgs } from "node:util";
 import { existsSync, readFileSync } from "node:fs";
-import { filterPairs, formatPairs } from "../results.js";
+import { filterPairs } from "../filter.js";
+import { CliFormatter, MarkdownFormatter } from "../formatter.js";
 
 export function runDisplay(args: string[]): void {
   const { values } = parseArgs({
@@ -30,11 +31,11 @@ export function runDisplay(args: string[]): void {
     filterFile: values.filter,
   });
 
-  const mode = values.markdown ? "markdown" : "cli";
+  const formatter = values.markdown ? new MarkdownFormatter() : new CliFormatter();
 
   console.log(`\nCo-change Analysis Results (Total pairs: ${pairs.length})`);
   if (values.filter) console.log(`Filtered by: ${values.filter}`);
   console.log("-".repeat(40));
 
-  console.log(formatPairs(pairs, mode));
+  console.log(formatter.format(pairs));
 }

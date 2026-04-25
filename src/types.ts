@@ -4,3 +4,9 @@ export interface AnalysisData {
   idToFile: string[];
   counts: Record<string, Record<string, number>>;
 }
+
+export interface FilePair {
+  count: number;
+  file1: string;
+  file2: string;
+}
