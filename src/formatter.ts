@@ -1,4 +1,4 @@
-import { FilePair } from "./types.js";
+import type { FilePair } from "./types.js";
 
 export interface Formatter {
   format(pairs: FilePair[]): string;

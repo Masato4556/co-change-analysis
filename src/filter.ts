@@ -1,6 +1,4 @@
-import { FilePair } from "./types.js";
-
-export { FilePair };
+import type { FilePair } from "./types.js";
 
 export function filterPairs(
   counts: Record<string | number, Record<string | number, number>>,
