@@ -75,12 +75,12 @@ co-gitsune display --top 50 --markdown
 co-gitsune display --filter src/auth.ts
 ```
 
-## .cochangeignore
+## .gitsuneignore
 
-Place a `.cochangeignore` file in your repository root to exclude files from analysis. It uses the same syntax as `.gitignore`.
+Place a `.gitsuneignore` file in your repository root to exclude files from analysis. It uses the same syntax as `.gitignore`.
 
 ```
-# .cochangeignore
+# .gitsuneignore
 *.lock
 dist/
 *.snap

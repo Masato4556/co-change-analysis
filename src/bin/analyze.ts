@@ -40,7 +40,7 @@ export function runAnalyze(args: string[]): void {
     console.log(`Starting fresh analysis (will overwrite ${dataPath})...`);
   }
 
-  const ignoreFile = '.cochangeignore';
+  const ignoreFile = '.gitsuneignore';
   if (existsSync(ignoreFile)) {
     console.log(`Loading ignore patterns from ${ignoreFile}...`);
     analyzer.loadIgnorePatterns(ignoreFile);
