@@ -32,25 +32,26 @@ export function filterPairs(
   return topN !== undefined ? pairs.slice(0, topN) : pairs;
 }
 
-export function formatPairs(pairs: FilePair[], mode: 'cli' | 'markdown' = 'cli'): void {
+export function formatPairs(pairs: FilePair[], mode: 'cli' | 'markdown' = 'cli'): string {
   if (pairs.length === 0) {
-    console.log('No pairs found.');
-    return;
+    return 'No pairs found.';
   }
 
+  const lines: string[] = [];
   if (mode === 'markdown') {
-    console.log('| Rank | Changes | File 1 | File 2 |');
-    console.log('|------|---------|--------|--------|');
+    lines.push('| Rank | Changes | File 1 | File 2 |');
+    lines.push('|------|---------|--------|--------|');
     pairs.forEach(({ count, file1, file2 }, i) => {
-      console.log(`| ${i + 1} | ${count} | \`${file1}\` | \`${file2}\` |`);
+      lines.push(`| ${i + 1} | ${count} | \`${file1}\` | \`${file2}\` |`);
     });
   } else {
     const maxF1 = Math.max(...pairs.map(p => p.file1.length));
     const header = `${'Rank'.padStart(4)} | ${'Count'.padStart(5)} | ${'File 1'.padEnd(maxF1)} | File 2`;
-    console.log(header);
-    console.log('-'.repeat(header.length));
+    lines.push(header);
+    lines.push('-'.repeat(header.length));
     pairs.forEach(({ count, file1, file2 }, i) => {
-      console.log(`${String(i + 1).padStart(4)} | ${String(count).padStart(5)} | ${file1.padEnd(maxF1)} | ${file2}`);
+      lines.push(`${String(i + 1).padStart(4)} | ${String(count).padStart(5)} | ${file1.padEnd(maxF1)} | ${file2}`);
     });
   }
+  return lines.join('\n');
 }

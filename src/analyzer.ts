@@ -135,8 +135,7 @@ export class CoChangeAnalyzer {
 
     const result = spawnSync('git', args, { encoding: 'utf-8' });
     if (result.status !== 0) {
-      console.error(`Error running git log: ${result.stderr}`);
-      return;
+      throw new Error(`git log failed: ${result.stderr}`);
     }
 
     let newestHash: string | null = null;
@@ -152,21 +151,4 @@ export class CoChangeAnalyzer {
     if (newestHash) this.lastHash = newestHash;
   }
 
-  report(): void {
-    const allPairs: [number, number, number][] = [];
-    for (const [id1Str, connected] of Object.entries(this.counts)) {
-      for (const [id2Str, count] of Object.entries(connected)) {
-        allPairs.push([count, parseInt(id1Str), parseInt(id2Str)]);
-      }
-    }
-    allPairs.sort((a, b) => b[0] - a[0]);
-
-    console.log('\nTop 10 Co-change File Pairs:');
-    console.log('-'.repeat(60));
-    for (let i = 0; i < Math.min(10, allPairs.length); i++) {
-      const [count, id1, id2] = allPairs[i];
-      console.log(`${String(i + 1).padStart(2)}. ${String(count).padStart(4)} changes: ${this.idToFile[id1]} <-> ${this.idToFile[id2]}`);
-    }
-    console.log('-'.repeat(60));
-  }
 }

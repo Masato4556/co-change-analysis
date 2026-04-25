@@ -50,7 +50,12 @@ export function runAnalyze(args: string[]): void {
   if (values.since) console.log(`Filtering commits since: ${values.since}`);
   if (maxCommits) console.log(`Limiting to max commits: ${maxCommits}`);
 
-  analyzer.updateWithGit(values.since, maxCommits);
+  try {
+    analyzer.updateWithGit(values.since, maxCommits);
+  } catch (err) {
+    console.error(err instanceof Error ? err.message : String(err));
+    process.exit(1);
+  }
   analyzer.saveData();
 
   console.log(`\nAnalysis complete. Data saved to ${dataPath}`);

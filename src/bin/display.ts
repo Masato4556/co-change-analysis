@@ -36,5 +36,5 @@ export function runDisplay(args: string[]): void {
   if (values.filter) console.log(`Filtered by: ${values.filter}`);
   console.log("-".repeat(40));
 
-  formatPairs(pairs, mode);
+  console.log(formatPairs(pairs, mode));
 }
